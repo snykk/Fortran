@@ -1,24 +1,11 @@
 PROGRAM MEKANIKA
     CHARACTER s
 !OPENING
-    PRINT*, ' '
     PRINT*, '|===================================================================================================|'
     PRINT*, '|                                                                                                   |'
     PRINT*, '|                     Selamat datang di Program Menghitung Mekanika Statis Tentu                    |'
     PRINT*, '|                                                                                                   |'
     PRINT*, '|===================================================================================================|'
-    PRINT*, '|                                      Program ini dibuat oleh:                                     |'
-    PRINT*, '|===================================================================================================|'
-    PRINT*, '|                                                                                                   |'
-    PRINT*, '|                          NAMA          : CHITA DYAH NUR AZIZAH                                    |'
-    PRINT*, '|                          NIM           : 200521630081                                             |'
-    PRINT*, '|                          OFFERING      : 12AA                                                     |'
-    PRINT*, '|                          MATA KULIAH   : APLIKASI PERANGKAT LUNAK TEKNIK SIPIL                    |'
-    PRINT*, '|                          DOSEN         : Drs. Eko Setyawan , M.T.                                 |'
-    PRINT*, '|                          TUGAS         : PERTEMUAN 13                                             |'
-    PRINT*, '|                                                                                                   |'
-    PRINT*, '|===================================================================================================|'
-    PRINT*, ' '
 
 !PILIHAN PERHITUNGAN
     PRINT*,' '
