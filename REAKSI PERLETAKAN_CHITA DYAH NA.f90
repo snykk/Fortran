@@ -1,0 +1,250 @@
+PROGRAM MEKANIKA
+    CHARACTER s
+!OPENING
+    PRINT*, ' '
+    PRINT*, '|===================================================================================================|'
+    PRINT*, '|                                                                                                   |'
+    PRINT*, '|                     Selamat datang di Program Menghitung Mekanika Statis Tentu                    |'
+    PRINT*, '|                                                                                                   |'
+    PRINT*, '|===================================================================================================|'
+    PRINT*, '|                                      Program ini dibuat oleh:                                     |'
+    PRINT*, '|===================================================================================================|'
+    PRINT*, '|                                                                                                   |'
+    PRINT*, '|                          NAMA          : CHITA DYAH NUR AZIZAH                                    |'
+    PRINT*, '|                          NIM           : 200521630081                                             |'
+    PRINT*, '|                          OFFERING      : 12AA                                                     |'
+    PRINT*, '|                          MATA KULIAH   : APLIKASI PERANGKAT LUNAK TEKNIK SIPIL                    |'
+    PRINT*, '|                          DOSEN         : Drs. Eko Setyawan , M.T.                                 |'
+    PRINT*, '|                          TUGAS         : PERTEMUAN 13                                             |'
+    PRINT*, '|                                                                                                   |'
+    PRINT*, '|===================================================================================================|'
+    PRINT*, ' '
+
+!PILIHAN PERHITUNGAN
+    PRINT*,' '
+    WRITE(*,*)'                     * PROGRAM MENGHITUNG REAKSI PERLETAKAN BALOK SEDERHANA *                      '
+    PRINT*,' '
+    PRINT*,' '
+
+    WRITE(*,*)'PILIH BEBAN BALOK:'
+    PRINT*, ' '
+
+    WRITE(*,*)'1    :Balok dengan 2 beban terpusat'
+    PRINT*, ' '
+    PRINT*, '                    P1                           P2              '
+    PRINT*, '                    |                            |               '
+    PRINT*, '                    |                            |               '
+    PRINT*, '                    |                            |               '
+    PRINT*, '     _______________V____________________________V______________ '
+    PRINT*, '     /\                                                       /\ '
+    PRINT*, '                                                                 '
+    PRINT*, '            L1                  L2                    L3         '
+    PRINT*, '    -|--------------|----------------------------|-------------|-'
+    PRINT*, ' '
+    PRINT*, ' '
+
+    WRITE(*,*)'2    :Balok menggantung dengan 3 beban terpusat'
+    PRINT*, ' '
+    PRINT*, '     P1                            P2                          P3'
+    PRINT*, '     |                             |                           | '
+    PRINT*, '     |                             |                           | '
+    PRINT*, '     |                             |                           | '
+    PRINT*, '     V_____________________________V___________________________V '
+    PRINT*, '                /\                                 /\            '
+    PRINT*, '                                                                 '
+    PRINT*, '          L1             L2                 L3           L4      '
+    PRINT*, '    -|----------|------------------|----------------|----------|-'
+    PRINT*, ' '
+    PRINT*, ' '
+
+    WRITE(*,*)'3:   Balok dengan beban merata '
+    PRINT*, ' '
+    PRINT*, '                       q __                                       '
+    PRINT*, '                           |                                      '
+    PRINT*, '                           |                                      '
+    PRINT*, '      _____________________|_____________________________________ '
+    PRINT*, '     |___________________________________________________________|'
+    PRINT*, '     /\                                                         /\'
+    PRINT*, '                                                                  '
+    PRINT*, '    -|-----------------------------|----------------------------|-'
+    PRINT*, '                                                                  '
+    PRINT*, '                                   L                              '
+    PRINT*, '    -|----------------------------------------------------------|-'
+    PRINT*, ' '
+    PRINT*, ' '
+
+    WRITE(*,*)'0    :keluar progam'
+    WRITE(*,*)'___________________________________________________________________________________________________'
+10  WRITE(*,1)
+1   FORMAT(1x,'Pilihan perhitungan =')
+    READ(*,*)A
+
+!BALOK 2 BEBAN TERPUSAT
+    IF(A.EQ.1)THEN
+        WRITE(*,2)
+2       FORMAT(1X,'Masukkan nilai beban P1 =')
+        READ (*,*)P1
+        WRITE(*,*)'Masukkan nilai beban P2 ='
+        READ (*,*)P2
+        PRINT*, ' '
+
+        WRITE(*,*)'Masukkan nilai L1 ='
+        READ (*,*)L1
+        WRITE(*,*)'Masukkan nilai L2 ='
+        READ (*,*)L2
+        WRITE(*,*)'Masukkan nilai L3 ='
+        READ (*,*)L3
+        PRINT*, ' '
+
+!REAKSI PERLETAKKAN
+        Ra=((P1*(L2+L3))+(P2*L3))/(L1+L2+L3)
+        Rb= (P1+P2)-Ra
+        PRINT*, ' '
+
+        Print*,'DIDAPATKAN:'
+        Print*,''
+        Print*,'REAKSI TUMPUAN'
+        Print*,''
+        WRITE(*,*)'Perletakan Ra =', Ra
+        WRITE(*,*)'Perletakan Rb =', Rb
+        PRINT*,''
+        Print*,''
+
+        V=(Ra+Rb)-(P1+P2)
+        WRITE(*,*)'check =',v
+        PRINT*,''
+        Print*,''
+
+!GAYA LINTANG
+        D1= Ra
+        D2= D1
+        D3= D2-P1
+        D4= D3
+        D5= D4-P2
+        D6= D5
+        D7= D6+Rb
+
+        Print*,'GAYA LINTANG (D)'
+        Print*,''
+        WRITE(*,*)'perletakan D1', D1
+        WRITE(*,*)'perletakan D2', D2
+        WRITE(*,*)'perletakan D3', D3
+        WRITE(*,*)'perletakan D4', D4
+        WRITE(*,*)'perletakan D5', D5
+        WRITE(*,*)'perletakan D6', D6
+        WRITE(*,*)'perletakan D7', D7
+        Print*,''
+        Print*,''
+
+!BALOK MENGGANTUNG 3 BEBAN TERPUSAT
+    ELSE IF(A.EQ.2)then
+        WRITE(*,3)
+3       FORMAT(1x,'Masukkan nilai beban P1 =')
+        Read(*,*)P1
+        Write(*,*)'Masukkan nilai beban P2 ='
+        Read(*,*)P2
+        Write(*,*)'Masukkan nilai beban P3 ='
+        Read(*,*)P3
+        Print*,''
+
+        WRITE(*,*)'Masukkan nilai L1 ='
+        READ (*,*)L1
+        WRITE(*,*)'Masukkan nilai L2 ='
+        READ (*,*)L2
+        WRITE(*,*)'Masukkan nilai L3 ='
+        READ (*,*)L3
+        WRITE(*,*)'Masukkan nilai L4 ='
+        READ (*,*)L4
+        Print*,''
+
+!REAKSI PERLETAKKAN
+        RA=(P1*(L1+L2+L3)+(P2*L3)-(P3*L4))/(L2+L3)
+        RB=(P1+P2+P3)-RA
+
+        Print*,'DIDAPATKAN:'
+        Print*,''
+        Print*,'REAKSI TUMPUAN'
+        Print*,''
+        WRITE(*,*)'perletakan RA', RA
+        WRITE(*,*)'perletakan RB', RB
+        Print*,''
+        Print*,''
+
+        V=(Ra+Rb)-(P1+P2+P3)
+        WRITE(*,*)'CHECK=',V
+        PRINT*,''
+        Print*,''
+
+!GAYA LINTANG
+        D1= -P1
+        D2= D1
+        D3= D2+Ra
+        D4= D3
+        D5= D4-P2
+        D6= D5
+        D7= D6+Rb
+        D8= D7
+        D9= D8-P3
+
+        Print*,'GAYA LINTANG (D)'
+        Print*,''
+        WRITE(*,*)'perletakan D1', D1
+        WRITE(*,*)'perletakan D2', D2
+        WRITE(*,*)'perletakan D3', D3
+        WRITE(*,*)'perletakan D4', D4
+        WRITE(*,*)'perletakan D5', D5
+        WRITE(*,*)'perletakan D6', D6
+        WRITE(*,*)'perletakan D7', D7
+        WRITE(*,*)'perletakan D8', D8
+        WRITE(*,*)'perletakan D9', D9
+        Print*,''
+        Print*,''
+
+!BALOK DENGAN BEBAN MERATA
+    ELSE IF(A.EQ.3)then
+        WRITE(*,4)
+4       FORMAT(1x,'Masukkan nilai beban q=')
+        READ (*,*)q
+        PRINT*, ' '
+
+        WRITE(*,*)'Masukkan nilai L ='
+        READ (*,*)L
+        Print*,''
+
+!REAKSI PERLETAKKAN
+        Ra=(q*L*L/2)/L
+        Rb=(q*L)-Ra
+        PRINT*, ' '
+
+        Print*,'DIDAPATKAN:'
+        Print*,''
+        Print*,'REAKSI TUMPUAN'
+        Print*,''
+        WRITE(*,*)'Perletakan Ra =', Ra
+        WRITE(*,*)'Perletakan Rb =', Rb
+        PRINT*, ''
+        Print*,''
+
+        V=(Ra+Rb)-(q*L)
+        WRITE(*,*)'check =',v
+        PRINT*,''
+        Print*,''
+
+    ELSE IF(A.EQ.0)then
+        GOTO 100
+    ELSE
+        WRITE(*,*)"Pilihan hanya 1,2,3 dan 0"
+    ENDIF
+20  WRITE(*,30)
+30  FORMAT(1x,'Pilih perhitungan lain?(y/n)')
+    READ(*,*)s
+    IF((s.EQ."y").OR.(s.EQ."Y"))then
+        GOTO 10
+    ELSE IF((s.EQ."n").OR.(s.EQ."N"))then
+        GOTO 100
+    ELSE
+        GOTO 20
+    ENDIF
+
+100 STOP 'TERIMA KASIH TELAH MENGGUNAKAN PROGRAM INI'
+    END
