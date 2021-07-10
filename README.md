@@ -1,2 +1,2 @@
 # Fortran
-beberapa program hasil dari bahasa fortran
+beberapa program yang dibuat dari bahasa fortran
