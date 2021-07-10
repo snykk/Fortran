@@ -1,0 +1,15 @@
+program data
+
+        REAL ISI, JARI
+        PARAMETER (PHI=3.14149)
+        WRITE(*,'(A)')'BESARNYA JARI JARI ADALAH'
+        READ(*,*) JARI
+        WRITE(*,'(A)')'TINGGI SILINDER ADALAH'
+        READ(*,*)TINGGI
+
+        ISI=2*PHI*JARI**2*TINGGI
+
+        WRITE(*,100)ISI
+    100 FORMAT(2X,'ISI SILINDER ADALAH = ',F10.2,'cm2')
+        STOP ' TERIMAKASIH TELAH MENGGUNAKAN PROGRAM INI'
+end
